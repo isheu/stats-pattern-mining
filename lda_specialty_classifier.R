@@ -88,4 +88,3 @@ write.csv(Terms, file = "high_prob_words_5.csv", quote = FALSE, row.names = FALS
 dist <- posterior(training_tm[["CTM"]])
 summary(dist$topic[,1])
 summary(dist$topic[,2])
-

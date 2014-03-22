@@ -13,4 +13,3 @@ data_csv <- read.csv("bene_procedure_transactions_ny.csv", sep = ",")
 data_trans <- as(as.matrix(data_csv), "transactions")
 
 rules_ny <- apriori(data_trans, parameter = list(support = 0.75, confidence = 1, target = "frequent itemsets", minlen = 2, maxlen = 10))
-
