@@ -1,13 +1,17 @@
 library(arules)
-setwd("G:/ProjectsOnG/Safe_Rx/CPI/Development/Association_Rules/EDB2012_10/stata_ivan/2012_12_20")
+setwd("Projects/Association_Rules/stata_ivan/2012_12_20/data")
+
+## Format of bene_procedure_transactions.csv ##
+## Beneficiary ID, Procedure #1, Procedure #2, Procedure #3 (by order of date of service/transaction)
+
+## Clinically-meaningful bins
+## Beneficiaries with a minimum # of procedures received
+## Extendable to identifying common NPIs, TINs
 
 data_csv <- read.csv("bene_procedure_transactions.csv", sep = ",")
-data_trans <- as(as.matrix(data_csv), "transactions")
+data_trans <- as(as.matrix(data_csv), "transactions")    # Create arules library transactions data format
 
 rules <- apriori(data_trans, parameter = list(support = 0.05, confidence = 1, target = "rules", minlen = 30, maxlen = 35))
-
-data_csv_t <- t(data_csv[0:1000,])
-data_trans <- as(data_csv_t, "transactions")
 
 data_csv <- read.csv("bene_procedure_transactions_ny.csv", sep = ",")
 data_trans <- as(as.matrix(data_csv), "transactions")
