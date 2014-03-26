@@ -1,12 +1,12 @@
+## Clinically-meaningful bins
+## Beneficiaries who received a minimum # of procedures
+## Extended to identify common sequences of physicians
+
+## Format of input dataset: In this example, "bene_procedure_transactions.csv" ##
+## ID (of patient), Procedure #1, Procedure #2, Procedure #3 (ordered by date of service)
+
 library(arules)
 setwd("Projects/Association_Rules/stata_ivan/2012_12_20/data")
-
-## Format of bene_procedure_transactions.csv ##
-## Beneficiary ID, Procedure #1, Procedure #2, Procedure #3 (by order of date of service/transaction)
-
-## Clinically-meaningful bins
-## Beneficiaries with a minimum # of procedures received
-## Extendable to identifying common NPIs, TINs
 
 data_csv <- read.csv("bene_procedure_transactions.csv", sep = ",")
 data_trans <- as(as.matrix(data_csv), "transactions")    # Create arules library transactions data format
