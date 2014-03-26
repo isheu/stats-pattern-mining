@@ -1,6 +1,6 @@
 ## Use R implementation of Latent Dirichlet Allocation (LDA) on problem of classifying the specialty of physician based on his/her procedures performed.
 ## "Documents": Physicians to be classified based on procedures performed. 
-## "Vocabulary": Medical procedures, coded by HCPCS system, performed by physicians. 
+## "Vocabulary": Medical procedures, coded by HCPCS system, performed by the physicians (documents). 
 
 library("tm")
 library("topicmodels")
